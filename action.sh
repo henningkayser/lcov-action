@@ -37,7 +37,7 @@ echo "Writing to: $OUTPUT"
 step "" sudo apt-get -qq update
 step "" sudo apt-get install -q -y lcov
 
-step "Capture coverage info" lcov --quiet --capture --directory "$PWD" --output-file "$OUTPUT"
+step "Capture coverage info" lcov --quiet --capture --ignore-errors mismatch --directory "$PWD" --output-file "$OUTPUT"
 
 step "Extract repository files" lcov --quiet --extract "$OUTPUT" "$PWD/*" --output-file "$OUTPUT"
 
